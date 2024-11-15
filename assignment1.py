@@ -3,9 +3,11 @@
 '''
 OPS435 Assignment 1 - Summer 2023
 Program: assignment1.py 
-Author: "Student Name"
+Author: Mitchell Gregoris
+ID: 133349191
+Email: mgregoris2@myseneca.ca
 The python code in this file (a1_[Student_id].py) is original work written by
-"Student Name". No code in this file is copied from any other source
+Mitchell Gregoris. No code in this file is copied from any other source
 except those provided by the course instructor, including any person,
 textbook, or on-line resource. I have not shared this python script
 with anyone or anything except for submission for grading. I understand
@@ -37,12 +39,16 @@ def after(date: str) -> str:
     This function takes care of the number of days in February for leap year.
     This fucntion has been tested to work for year after 1582
     '''
+    # Parse given data arguments, remove '-' delimeter, set string values to integer
     str_year, str_month, str_day = date.split('-')
     year = int(str_year)
     month = int(str_month)
     day = int(str_day)
     tmp_day = day + 1  # next day
 
+    # Calculate if the days of the week exceed the days in the month
+    # If true, increase month +1
+    # Else keep variables
     if tmp_day > mon_max(month, year):
         to_day = tmp_day % mon_max(month, year)  # if tmp_day > this month's max, reset to 1 
         tmp_month = month + 1
@@ -50,6 +56,7 @@ def after(date: str) -> str:
         to_day = tmp_day
         tmp_month = month + 0
 
+    # Calculate if added month exceeds our 12 month calendar
     if tmp_month > 12:
         to_month = 1
         year = year + 1
