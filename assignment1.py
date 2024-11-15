@@ -33,6 +33,42 @@ def mon_max(month:int, year:int) -> int:
         If true, increase month +1, Else keep variables
 
     '''
+    month = int(str_month)
+    year = int(str_year)
+    days = 0
+    if (leap_year(year)):
+        switch (month)
+        {
+            case (month == 1):
+                days = 31
+            case (month == 2):
+                days = 28
+            case (month == 3):
+                days = 31
+            case (month == 4):
+                days = 30
+            case (month == 5):
+                days = 31
+            case (month == 6):
+                days = 30
+            case (month == 7):
+                days = 31
+            case (month == 8):
+                days = 31
+            case (month == 9):
+                days = 30
+            case (month == 10):
+                days = 31
+            case (month == 11):
+                days = 30
+            case (month == 12):
+                days += 31
+        }
+        return days 
+            
+        
+
+
     tmp_day = day + 1  # next day
     if tmp_day > mon_max(month, year):
         to_day = tmp_day % mon_max(month, year)  # if tmp_day > this month's max, reset to 1 
