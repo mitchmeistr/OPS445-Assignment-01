@@ -28,8 +28,41 @@ def day_of_week(year: int, month: int, date: int) -> str:
 
 
 def mon_max(month:int, year:int) -> int:
-    "returns the maximum day for a given month. Includes leap year check"
-    ...
+    '''returns the maximum day for a given month. Includes leap year check
+        Calculate if the days of the week exceed the days in the month
+        If true, increase month +1, Else keep variables
+
+    '''
+    tmp_day = day + 1  # next day
+    if tmp_day > mon_max(month, year):
+        to_day = tmp_day % mon_max(month, year)  # if tmp_day > this month's max, reset to 1 
+        tmp_month = month + 1
+    else:
+        to_day = tmp_day
+        tmp_month = month + 0
+
+    # Calculate if added month exceeds our 12 month calendar
+    if tmp_month > 12:
+        to_month = 1
+        year = year + 1
+    else:
+        to_month = tmp_month + 0
+
+    next_date = f"{year}-{to_month:02}-{to_day:02}"
+
+    return next_date
+
+def parse_date(date: str) -> int:
+    ''' Takes in date string, parses string into our day, month year values
+        removes our '-' delimiter, returns integers to pass to other functions
+    '''
+    str_year, str_month, str_day = date.split('-')
+    year = int(str_year)
+    month = int(str_month)
+    day = int(str_day)
+
+    return int(year), int(month), int(day)
+
 
 def after(date: str) -> str:
     '''
@@ -44,6 +77,7 @@ def after(date: str) -> str:
     year = int(str_year)
     month = int(str_month)
     day = int(str_day)
+    
     tmp_day = day + 1  # next day
 
     # Calculate if the days of the week exceed the days in the month
@@ -74,8 +108,22 @@ def usage():
 
 
 def leap_year(year: int) -> bool:
-    "return True if the year is a leap year"
-    ...
+    ''' Every year divisiable by 4 is a leap year,
+        Exception for years divisable by 100,
+        Exception for every century if they are divisable by 400,
+        Accepts int year, returns True if the year is a leap year"
+    '''
+    leap_flag = False
+    tmp_year = year
+
+    if (tmp_year % 400 == 0):
+        leap_flag = True
+    elif (tmp_year % 100 == 0):
+        leap_flag = False
+    elif (tmp_year % 4 == 0):
+        leap_flag = True
+    
+    return leap_flag
 
 def valid_date(date: str) -> bool:
     "check validity of date and return True if valid"
