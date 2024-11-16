@@ -68,43 +68,6 @@ def non_leap_year_days(month:int, year:int) -> int:
     month = int(month)
     year = int(year)
     days = 0
-    if (leap_year(year) == False): # condition can be removed
-        if (month == 1):
-            days = 31
-        elif (month == 2):
-            days = 28
-        elif (month == 3):
-            days = 31
-        elif (month == 4):
-            days = 30
-        elif (month == 5):
-            days = 31
-        elif (month == 6):
-            days = 30
-        elif (month == 7):
-            days = 31
-        elif (month == 8):
-            days = 31
-        elif (month == 9):
-            days = 30
-        elif (month == 10):
-            days = 31
-        elif (month == 11):
-            days = 30
-        elif (month == 12):
-            days = 31
-        return days
-
-
-def mon_max(month:int, year:int) -> int:
-    '''returns the maximum day for a given month. Includes leap year check
-        Calculate if the days of the week exceed the days in the month
-        If true, increase month +1, Else keep variables
-
-    '''
-    month = int(month)
-    year = int(year)
-    days = 0
     if (month == 1):
         days = 31
     elif (month == 2):
@@ -129,7 +92,22 @@ def mon_max(month:int, year:int) -> int:
         days = 30
     elif (month == 12):
         days = 31
-    return days 
+    return days
+
+
+def mon_max(month:int, year:int) -> int:
+    ''' Calculates the maxium day for a given month
+        Includes a leap year check
+        Returns int value for how many days in that month
+    '''
+    tmp_month = month
+    tmp_year = year
+    days = 0
+    if (leap_year(tmp_year)):
+        days = leap_year_days(tmp_month,tmp_year)
+    else:
+        days = non_leap_year_days(tmp_month,tmp_year)
+    return days
             
 
 def parse_date(date: str) -> int:
