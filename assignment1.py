@@ -27,66 +27,49 @@ def day_of_week(year: int, month: int, date: int) -> str:
     return days[num]
 
 
+
+
 def mon_max(month:int, year:int) -> int:
     '''returns the maximum day for a given month. Includes leap year check
         Calculate if the days of the week exceed the days in the month
         If true, increase month +1, Else keep variables
 
     '''
-    month = int(str_month)
-    year = int(str_year)
+    month = int(month)
+    year = int(year)
     days = 0
     if (leap_year(year)):
-        switch (month)
-        {
-            case (month == 1):
-                days = 31
-            case (month == 2):
-                days = 28
-            case (month == 3):
-                days = 31
-            case (month == 4):
-                days = 30
-            case (month == 5):
-                days = 31
-            case (month == 6):
-                days = 30
-            case (month == 7):
-                days = 31
-            case (month == 8):
-                days = 31
-            case (month == 9):
-                days = 30
-            case (month == 10):
-                days = 31
-            case (month == 11):
-                days = 30
-            case (month == 12):
-                days += 31
-        }
+        if (month == 1):
+            days = 31
+        elif (month == 2):
+            days = 28
+        elif (month == 3):
+            days = 31
+        elif (month == 4):
+            days = 30
+        elif (month == 5):
+            days = 31
+        elif (month == 6):
+            days = 30
+        elif (month == 7):
+            days = 31
+        elif (month == 8):
+            days = 31
+        elif (month == 9):
+            days = 30
+        elif (month == 10):
+            days = 31
+        elif (month == 11):
+            days = 30
+        elif (month == 12):
+            days = 31
+        
         return days 
             
         
 
 
-    tmp_day = day + 1  # next day
-    if tmp_day > mon_max(month, year):
-        to_day = tmp_day % mon_max(month, year)  # if tmp_day > this month's max, reset to 1 
-        tmp_month = month + 1
-    else:
-        to_day = tmp_day
-        tmp_month = month + 0
-
-    # Calculate if added month exceeds our 12 month calendar
-    if tmp_month > 12:
-        to_month = 1
-        year = year + 1
-    else:
-        to_month = tmp_month + 0
-
-    next_date = f"{year}-{to_month:02}-{to_day:02}"
-
-    return next_date
+    
 
 def parse_date(date: str) -> int:
     ''' Takes in date string, parses string into our day, month year values
