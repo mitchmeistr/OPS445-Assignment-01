@@ -26,7 +26,75 @@ def day_of_week(year: int, month: int, date: int) -> str:
     num = (year + year//4 - year//100 + year//400 + offset[month] + date) % 7
     return days[num]
 
-
+def leap_year_days(month:int, year:int) -> int:
+    ''' Calculates how many days are in each month during a leap year 
+        Paramters: month:int, year:int
+        Returns integer value for how many days in the month for that year
+    '''
+    month = int(month)
+    year = int(year)
+    days = 0
+    if (leap_year(year)):
+        if (month == 1):
+            days = 31
+        elif (month == 2):
+            days = 29
+        elif (month == 3):
+            days = 31
+        elif (month == 4):
+            days = 30
+        elif (month == 5):
+            days = 31
+        elif (month == 6):
+            days = 30
+        elif (month == 7):
+            days = 31
+        elif (month == 8):
+            days = 31
+        elif (month == 9):
+            days = 30
+        elif (month == 10):
+            days = 31
+        elif (month == 11):
+            days = 30
+        elif (month == 12):
+            days = 31
+        return days
+    
+def non_leap_year_days(month:int, year:int) -> int:
+    ''' Calculates how many days are in each month during a NON-leap year 
+        Paramters: month:int, year:int
+        Returns integer value for how many days in the month for that year
+    '''
+    month = int(month)
+    year = int(year)
+    days = 0
+    if (leap_year(year)):
+        if (month == 1):
+            days = 31
+        elif (month == 2):
+            days = 28
+        elif (month == 3):
+            days = 31
+        elif (month == 4):
+            days = 30
+        elif (month == 5):
+            days = 31
+        elif (month == 6):
+            days = 30
+        elif (month == 7):
+            days = 31
+        elif (month == 8):
+            days = 31
+        elif (month == 9):
+            days = 30
+        elif (month == 10):
+            days = 31
+        elif (month == 11):
+            days = 30
+        elif (month == 12):
+            days = 31
+        return days
 
 
 def mon_max(month:int, year:int) -> int:
