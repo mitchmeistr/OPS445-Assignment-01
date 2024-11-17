@@ -115,7 +115,10 @@ def days_in_month(month:int, leap_year:bool) -> int:
 
 def mon_max(month:int, year:int) -> int:
     ''' Calculates the maxium day for a given month
-        Includes a leap year check
+        Uses: leap_year() & days_in_month()
+        Params: month(int) - representing calendar months
+            leap_year(): true for leap year, else false
+            days_in_month(month,bool):
         Returns int value for how many days in that month
     '''
     days = 0
