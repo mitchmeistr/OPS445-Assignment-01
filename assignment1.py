@@ -201,7 +201,36 @@ def leap_year(year: int) -> bool:
 
 def valid_date(date: str) -> bool:
     "check validity of date and return True if valid"
-    ...
+    ''' Check if the string is digits
+        Check 
+    
+    '''
+    #* Doesnt work, string values will cause the parse_date function to fail
+    # The parse date function would need to be reworked, not best idea 
+    # TODO: Manually check the strings, as its easier to work with and
+    # will probably be whats necessary for the CheckScript to pass
+    # Keep it simple!
+    valid_date_flag = False
+
+    try:
+        year, month, day = parse_date(date)
+    except TypeError:
+        print("TypeError: Expecting integer values")
+
+    if (month >= 1) and (month >= 12):
+        if (day >= 1) and (day <= 31):
+            valid_date_flag = True
+
+    # check length(of digits) of year, month, day
+    # check if numbers
+
+    # check if month is <1 or >12
+
+    # check if day is <1 or >days_in_month
+    return valid_date_flag
+    
+    
+
 
 def day_count(start_date: str, stop_date: str) -> int:
     "Loops through range of dates, and returns number of weekend days"
