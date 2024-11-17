@@ -118,13 +118,11 @@ def mon_max(month:int, year:int) -> int:
         Includes a leap year check
         Returns int value for how many days in that month
     '''
-    tmp_month = month
-    tmp_year = year
     days = 0
-    if (leap_year(tmp_year)):
-        days = leap_year_days(tmp_month,tmp_year)
+    if (leap_year(year)):
+        days = days_in_month(month,True)
     else:
-        days = non_leap_year_days(tmp_month,tmp_year)
+        days = days_in_month(month,False)
     return days
             
 
