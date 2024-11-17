@@ -34,6 +34,7 @@ def leap_year_days(month:int, year:int) -> int:
     month = int(month)
     year = int(year)
     days = 0
+    # Match month to month varible value, and assign day value based on month
     if (month == 1):
         days = 31
     elif (month == 2):
@@ -68,6 +69,7 @@ def non_leap_year_days(month:int, year:int) -> int:
     month = int(month)
     year = int(year)
     days = 0
+    # Match month to month varible value, and assign day value based on month
     if (month == 1):
         days = 31
     elif (month == 2):
@@ -131,10 +133,12 @@ def after(date: str) -> str:
     This fucntion has been tested to work for year after 1582
     '''
     # Parse given data arguments, remove '-' delimeter, set string values to integer
-    str_year, str_month, str_day = date.split('-')
-    year = int(str_year)
-    month = int(str_month)
-    day = int(str_day)
+    #str_year, str_month, str_day = date.split('-')
+    #year = int(str_year)
+    #month = int(str_month)
+    #day = int(str_day)
+
+    year, month, day = parse_date(date)
     
     tmp_day = day + 1  # next day
 
