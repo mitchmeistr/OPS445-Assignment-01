@@ -126,17 +126,12 @@ def parse_date(date: str) -> int:
 
 def after(date: str) -> str:
     '''
-    after() -> date for next day in YYYY-MM-DD string format
-
+    Calculates the next day for a given YYYY-MM-DD format
+    Takes in a date parameter
     Return the date for the next day of the given date in YYYY-MM-DD format.
     This function takes care of the number of days in February for leap year.
     This fucntion has been tested to work for year after 1582
     '''
-    # Parse given data arguments, remove '-' delimeter, set string values to integer
-    #str_year, str_month, str_day = date.split('-')
-    #year = int(str_year)
-    #month = int(str_month)
-    #day = int(str_day)
 
     year, month, day = parse_date(date)
     
@@ -144,7 +139,7 @@ def after(date: str) -> str:
 
     # Calculate if the days of the week exceed the days in the month
     # If true, increase month +1
-    # Else keep variables
+    # Else keep status quo
     if tmp_day > mon_max(month, year):
         to_day = tmp_day % mon_max(month, year)  # if tmp_day > this month's max, reset to 1 
         tmp_month = month + 1
