@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 '''
-OPS435 Assignment 1 - Summer 2023
+OPS435 Assignment 1 - Fall 2024
 Program: assignment1.py 
 Author: Mitchell Gregoris
 ID: 133349191
@@ -95,6 +95,22 @@ def non_leap_year_days(month:int, year:int) -> int:
     elif (month == 12):
         days = 31
     return days
+
+def days_in_month(month:int, leap_year:bool) -> int:
+    ''' Calculates how many days in month depending on whether the year is a leap year or not,
+        Uses the leap_year()
+        Params: month (int) - 1-12 representing the calendar months
+            leap_year(): true for leap year, else false 
+        Returns: int representing the days in month
+    '''
+    days_in_month = {
+        1: 31, 2: (29 if leap_year else 28), 3: 31, 4: 30, 5: 31, 6: 30,
+        7: 31, 8:31, 9: 30, 10: 31, 11:30, 12: 31
+    }
+
+    return days_in_month.get(month, 0)
+        
+
 
 
 def mon_max(month:int, year:int) -> int:
